@@ -15,8 +15,8 @@ public class LicenseSignerTest {
 
     @Test
     public void testSignature() throws NoSuchAlgorithmException, IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchPaddingException {
-        final var keyPair = LicenseKeyPair.Create.from("RSA", 2048);
-        final var license = new License();
+        final LicenseKeyPair keyPair = LicenseKeyPair.Create.from("RSA", 2048);
+        final License license = new License();
         license.add(Feature.Create.stringFeature("owner", "Peter Verhas"));
         license.sign(keyPair.getPair().getPrivate(), "SHA-512");
         Assertions.assertTrue(license.isOK(keyPair.getPair().getPublic()));

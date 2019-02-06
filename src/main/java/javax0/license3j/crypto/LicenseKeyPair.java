@@ -26,9 +26,9 @@ public class LicenseKeyPair {
     }
 
     private byte[] getKeyBytes(Key key) {
-        final var algorithm = key.getAlgorithm().getBytes(StandardCharsets.UTF_8);
-        final var len =  algorithm.length + 1 + key.getEncoded().length;
-        final var buffer = new byte[len];
+        final byte[] algorithm = key.getAlgorithm().getBytes(StandardCharsets.UTF_8);
+        final int len =  algorithm.length + 1 + key.getEncoded().length;
+        final byte[] buffer = new byte[len];
         System.arraycopy(algorithm,0,buffer,0,algorithm.length);
         buffer[algorithm.length] = 0x00;
         System.arraycopy(key.getEncoded(),0,buffer,algorithm.length+1,key.getEncoded().length);
@@ -74,14 +74,14 @@ public class LicenseKeyPair {
         }
 
         private static PublicKey getPublicEncoded(byte[] buffer) throws NoSuchAlgorithmException, InvalidKeySpecException {
-            final var spec = new X509EncodedKeySpec(getEncoded(buffer));
-            final var factory = KeyFactory.getInstance(getAlgorithm(buffer));
+            final X509EncodedKeySpec spec = new X509EncodedKeySpec(getEncoded(buffer));
+            final KeyFactory factory = KeyFactory.getInstance(getAlgorithm(buffer));
             return factory.generatePublic(spec);
         }
 
         private static PrivateKey getPrivateEncoded(byte[] buffer) throws NoSuchAlgorithmException, InvalidKeySpecException {
-            final var spec = new PKCS8EncodedKeySpec(getEncoded(buffer));
-            final var factory = KeyFactory.getInstance(getAlgorithm(buffer));
+            final PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(getEncoded(buffer));
+            final KeyFactory factory = KeyFactory.getInstance(getAlgorithm(buffer));
             return factory.generatePrivate(spec);
         }
 
