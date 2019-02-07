@@ -12,7 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <description>Free license manager</description>
-    <url>https://github.com/verhas/License3j/tree/master</url>
+    <url>https://github.com/giorgioinf/License3j/tree/master</url>
     <licenses>
         <license>
             <name>The Apache License, Version 2.0</name>
@@ -26,9 +26,9 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:git@github.com:verhas/License3j.git</connection>
-        <developerConnection>scm:git:ssh://github.com/verhas/License3j.git</developerConnection>
-        <url>https://github.com/verhas/License3j/tree/master</url>
+        <connection>scm:git:git@github.com:giorgioinf/License3j.git</connection>
+        <developerConnection>scm:git:ssh://github.com/giorgioinf/License3j.git</developerConnection>
+        <url>https://github.com/giorgioinf/License3j/tree/master</url>
     </scm>
     <dependencies>
         <dependency>
@@ -91,7 +91,6 @@
                     <encoding>UTF-8</encoding>
                     <source>1.8</source>
                     <target>1.8</target>
-                    <release>8</release>
                     <jdkToolchain>
                         <version>8</version>
                     </jdkToolchain>
